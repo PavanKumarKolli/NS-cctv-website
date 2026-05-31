@@ -1,0 +1,98 @@
+/* Scroll Padding for Fixed Headers */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Floating Quote Checklist Widget */
+.floating-checklist-badge {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-primary) 100%);
+  color: #fff;
+  border-radius: var(--radius-full);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 30px rgba(0, 210, 255, 0.4);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  animation: slideUpFloating 0.5s cubic-bezier(0.1, 0.8, 0.2, 1);
+  cursor: pointer;
+}
+
+.floating-checklist-badge:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(0, 210, 255, 0.6);
+}
+
+.floating-count-bubble {
+  background: #fff;
+  color: var(--accent-secondary);
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+@keyframes slideUpFloating {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Additional Features Grid in App */
+.features-section {
+  background-color: var(--bg-primary);
+  padding: 100px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 991px) {
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-card {
+  padding: 36px 30px;
+  text-align: left;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
+.feature-card-icon {
+  color: var(--accent-primary);
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.25));
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}

@@ -1,0 +1,429 @@
+.mobile-app-section {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Smartphone Mockup Chassis */
+.phone-mockup-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.smartphone-body {
+  width: 290px;
+  height: 580px;
+  background: #0f111a;
+  border: 11px solid #1a1d2e;
+  border-radius: 40px;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.smartphone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 18px;
+  background: #1a1d2e;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  z-index: 100;
+}
+
+.smartphone-notch::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 4px;
+  background: #090a10;
+  border-radius: var(--radius-full);
+}
+
+.smartphone-notch::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  right: 25px;
+  width: 5px;
+  height: 5px;
+  background: #1059f6;
+  border-radius: var(--radius-full);
+}
+
+/* Smartphone Screen Interior */
+.smartphone-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: #030408;
+  padding: 24px 12px 12px;
+}
+
+/* App Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  font-family: var(--mono);
+  padding: 6px 4px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.app-signal {
+  letter-spacing: 1px;
+}
+
+/* Stream Viewport */
+.app-viewport {
+  height: 155px;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  margin-top: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.phone-feed-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.app-feed-overlay-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0.02em;
+}
+
+.app-live-dot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--accent-alert);
+  border-radius: var(--radius-full);
+  animation: blinking-rec 1.2s infinite;
+}
+
+.app-action-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 210, 255, 0.85);
+  color: #000;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.55rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+}
+
+/* App Channel Selector */
+.app-feeds-menu {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.app-feed-tab {
+  padding: 6px 0;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-secondary);
+  border-radius: 4px;
+  transition: var(--transition-fast);
+}
+
+.app-feed-tab:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.app-feed-tab.active {
+  background: rgba(0, 210, 255, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+/* App Console & PTZ joypad */
+.app-controls-block {
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Joypad styling */
+.app-joypad {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.joy-btn {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: var(--transition-fast);
+}
+
+.joy-btn:hover {
+  background: var(--accent-primary);
+  color: #000;
+}
+
+.joy-up { top: 4px; left: 37px; }
+.joy-down { bottom: 4px; left: 37px; }
+.joy-left { left: 4px; top: 37px; }
+.joy-right { right: 4px; top: 37px; }
+
+.joy-center {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* Phone Quick buttons */
+.app-action-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 6px;
+}
+
+.app-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  font-size: 0.55rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.app-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.app-btn.accent {
+  background: rgba(0, 210, 255, 0.08);
+  border-color: rgba(0, 210, 255, 0.2);
+  color: var(--accent-primary);
+}
+
+/* Mobile Info Details (Right Column) */
+.mobile-info-content {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mobile-info-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  line-height: 1.15;
+}
+
+.mobile-desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+}
+
+.mobile-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.benefit-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.benefit-bullet {
+  background: rgba(0, 210, 255, 0.05);
+  border: 1px solid rgba(0, 210, 255, 0.15);
+  color: var(--accent-primary);
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefit-text h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.benefit-text p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Notifications Box */
+.mock-notifications-panel {
+  padding: 20px;
+  background: rgba(12, 15, 26, 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.notif-panel-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.notif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notif-card {
+  padding: 10px 14px;
+  background: rgba(6, 7, 13, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notif-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.notif-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+}
+
+.notif-indicator.alert { background-color: var(--accent-alert); box-shadow: 0 0 6px var(--accent-alert); }
+.notif-indicator.warning { background-color: var(--accent-warning); box-shadow: 0 0 6px var(--accent-warning); }
+.notif-indicator.normal { background-color: var(--accent-success); box-shadow: 0 0 6px var(--accent-success); }
+
+.notif-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.notif-time {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.notif-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .mobile-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .phone-mockup-wrapper {
+    order: 2;
+  }
+  
+  .mobile-info-content {
+    order: 1;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .mobile-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .mobile-info-content h2 {
+    font-size: 2.3rem;
+  }
+  
+  .mock-notifications-panel {
+    width: 100%;
+    max-width: 600px;
+  }
+}

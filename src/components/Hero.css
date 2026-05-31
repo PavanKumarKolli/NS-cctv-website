@@ -1,0 +1,329 @@
+.hero-section {
+  padding: 160px 0 100px;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+}
+
+/* Cybernetic glow background lights */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.08) 0%, rgba(59, 130, 246, 0.03) 70%, transparent 100%);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  line-height: 1.15;
+}
+
+.hero-desc {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+  max-width: 580px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+/* Feature Items Under CTA */
+.hero-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 30px;
+}
+
+.hero-feat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.feat-icon-wrapper {
+  background: rgba(0, 210, 255, 0.05);
+  border: 1px solid rgba(0, 210, 255, 0.15);
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-feat-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.hero-feat-item p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* CCTV Control Console Mockup */
+.hero-visual {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.console-wrapper {
+  width: 100%;
+  max-width: 480px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.console-header {
+  background: #090a0f;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.rec-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-alert);
+  font-weight: 600;
+}
+
+.rec-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-alert);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 8px var(--accent-alert);
+  animation: blinking-rec 1.5s infinite;
+}
+
+.console-viewport {
+  position: relative;
+  height: 320px;
+  background: #04050a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.console-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 210, 255, 0.04), transparent);
+  pointer-events: none;
+  z-index: 5;
+  animation: scanline 6s linear infinite;
+}
+
+/* Grid background pattern */
+.console-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+/* Camera graphics styling */
+.camera-illustration-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.camera-svg {
+  width: 100%;
+  height: 100%;
+  animation: pulse-dot 4s infinite ease-in-out;
+}
+
+/* Floating AI Tracker label */
+.target-label {
+  position: absolute;
+  top: -10px;
+  left: 100%;
+  white-space: nowrap;
+  background: rgba(16, 185, 129, 0.95);
+  border: 1px solid var(--accent-success);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: #030408;
+  display: flex;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+}
+
+.target-label-box {
+  font-weight: 700;
+}
+
+.target-percentage {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0 3px;
+  border-radius: 2px;
+}
+
+/* Corner Reticle Brackets */
+.targeting-reticle {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.bracket {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent-primary);
+}
+
+.br-top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
+.br-top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
+.br-bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
+.br-bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+/* Micro Telemetry HUD Overlay */
+.console-hud {
+  position: absolute;
+  bottom: 12px;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  line-height: 1.6;
+  color: var(--accent-primary);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.console-hud-left { left: 16px; text-align: left; }
+.console-hud-right { right: 16px; text-align: right; }
+
+.console-footer {
+  background: #090a0f;
+  border-top: 1px solid var(--border-color);
+  padding: 8px 16px;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radar-ping {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-success);
+  border-radius: var(--radius-full);
+  position: relative;
+  display: inline-block;
+}
+
+.radar-ping::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--accent-success);
+  animation: radar-pulse 1.8s infinite ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .hero-content {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+  }
+  
+  .hero-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .console-viewport {
+    height: 260px;
+  }
+  
+  .targeting-reticle {
+    width: 170px;
+    height: 170px;
+  }
+}
