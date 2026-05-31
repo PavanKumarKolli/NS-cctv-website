@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Shield, Zap, Cloud, Eye, ShieldCheck, UserCheck, ClipboardList } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -9,10 +9,20 @@ import MobileApp from './components/MobileApp';
 import QuoteCalculator from './components/QuoteCalculator';
 import Footer from './components/Footer';
 import Clients from './components/Clients';
+import Preloader from './components/Preloader';
 import './App.css';
 
 export default function App() {
   const [selectedItems, setSelectedItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Preloader Startup Timer
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3400);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Handles adding/removing items to checklist
   const handleToggleItem = (item) => {
@@ -30,6 +40,7 @@ export default function App() {
 
   return (
     <>
+      {isLoading && <Preloader />}
       <Navbar />
       
       <main>

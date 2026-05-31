@@ -1,0 +1,199 @@
+.preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #030408;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.preloader-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Technical grid overlay background */
+.preloader-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 210, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 210, 255, 0.015) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scanner Core */
+.preloader-scanner {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+  z-index: 2;
+}
+
+.scanner-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px dashed rgba(0, 210, 255, 0.3);
+}
+
+.outer-ring {
+  inset: -10px;
+  animation: rotate-outer 8s linear infinite;
+  border-color: rgba(0, 210, 255, 0.35);
+}
+
+.inner-ring {
+  inset: -2px;
+  animation: rotate-inner 5s linear infinite;
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.scanner-pulse {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  animation: pulse-scanner-ring 2.2s infinite cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.scanner-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 8px;
+  object-fit: contain;
+  z-index: 5;
+  box-shadow: 0 0 25px rgba(0, 210, 255, 0.3);
+  animation: logo-glowing-pulse 2s infinite ease-in-out;
+}
+
+/* Animations */
+@keyframes rotate-outer {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-inner {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes pulse-scanner-ring {
+  0% { transform: scale(0.7); opacity: 0.9; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes logo-glowing-pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 15px rgba(0, 210, 255, 0.25); }
+  50% { transform: scale(1.05); box-shadow: 0 0 35px rgba(0, 210, 255, 0.55); }
+  100% { transform: scale(0.95); box-shadow: 0 0 15px rgba(0, 210, 255, 0.25); }
+}
+
+/* Text layouts */
+.preloader-text-group {
+  text-align: center;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.preloader-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  animation: text-reveal-fade 1s ease-out;
+}
+
+.preloader-title .highlight-text {
+  color: var(--accent-primary);
+  text-shadow: 0 0 15px rgba(0, 210, 255, 0.45);
+}
+
+.preloader-subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  opacity: 0;
+  animation: subtitle-reveal 1.2s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes text-reveal-fade {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes subtitle-reveal {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Terminal diagnostics status */
+.preloader-boot-terminal {
+  position: absolute;
+  bottom: 40px;
+  font-family: var(--mono);
+  font-size: 0.725rem;
+  color: var(--accent-success);
+  text-align: center;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.boot-terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.6;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.rec-blinking-dot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--accent-success);
+  border-radius: 50%;
+  animation: blinking-rec 1.2s infinite;
+}
+
+.boot-terminal-text {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 5px rgba(16, 185, 129, 0.3);
+}
+
+@media (max-width: 480px) {
+  .preloader-title {
+    font-size: 1.8rem;
+  }
+  .preloader-subtitle {
+    font-size: 0.85rem;
+  }
+}
