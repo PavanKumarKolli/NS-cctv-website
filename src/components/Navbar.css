@@ -32,29 +32,24 @@
   user-select: none;
 }
 
-.logo-icon-wrapper {
+.logo-img-wrapper {
   position: relative;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
+  background: #ffffff;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.logo-shield {
-  color: var(--accent-secondary);
-  width: 100%;
-  height: 100%;
-}
-
-.logo-eye {
-  color: var(--accent-primary);
-  width: 16px;
-  height: 16px;
-  position: absolute;
-  top: 9px;
-  left: 10px;
-  animation: pulse-dot 2.5s infinite ease-in-out;
+.logo-img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
 }
 
 .logo-text {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Eye, Send, Phone, Mail, MapPin, CheckCircle } from 'lucide-react';
+import { Send, Phone, Mail, MapPin, CheckCircle } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -25,9 +25,8 @@ export default function Footer() {
         {/* Brand details */}
         <div className="footer-brand-col">
           <div className="logo footer-logo">
-            <div className="logo-icon-wrapper">
-              <Shield className="logo-shield" />
-              <Eye className="logo-eye" />
+            <div className="logo-img-wrapper">
+              <img src="/logo.png" alt="Nethra Solutions Logo" className="logo-img" />
             </div>
             <span className="logo-text">NETHRA <span className="highlight">SOLUTIONS</span></span>
           </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Eye, Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -25,9 +25,8 @@ export default function Navbar() {
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container header-container">
         <a href="#hero" className="logo" onClick={closeMenu}>
-          <div className="logo-icon-wrapper">
-            <Shield className="logo-shield" />
-            <Eye className="logo-eye" />
+          <div className="logo-img-wrapper">
+            <img src="/logo.png" alt="Nethra Solutions Logo" className="logo-img" />
           </div>
           <span className="logo-text">
             NETHRA <span className="highlight">SOLUTIONS</span>
@@ -64,9 +63,8 @@ export default function Navbar() {
         <nav className="mobile-nav" onClick={(e) => e.stopPropagation()}>
           <div className="mobile-nav-header">
             <a href="#hero" className="logo" onClick={closeMenu}>
-              <div className="logo-icon-wrapper">
-                <Shield className="logo-shield" />
-                <Eye className="logo-eye" />
+              <div className="logo-img-wrapper">
+                <img src="/logo.png" alt="Nethra Solutions Logo" className="logo-img" />
               </div>
               <span className="logo-text">NETHRA <span className="highlight">SOLUTIONS</span></span>
             </a>
